@@ -74,5 +74,16 @@ class VectorStore:
         if ids:
             self.db.delete(ids=ids)
 
+    def get_representative_chunks(self, filename, k=40):
+
+     docs = self.db.max_marginal_relevance_search(
+        "Résumé complet du document",
+        k=k,
+        fetch_k=max(k * 3, 60),
+        lambda_mult=0.4,
+        filter={"doc_id": filename},
+    )
+
+     return [doc.page_content for doc in docs]
 
 vector_store = VectorStore()
