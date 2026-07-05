@@ -184,5 +184,3 @@ RAG-chatbot/
 - Déploiement (Docker, hébergement du frontend/backend)
 
 ---
-
-Projet réalisé dans le cadre d'un travail personnel / académique.
